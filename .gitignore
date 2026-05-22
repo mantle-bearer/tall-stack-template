@@ -20,6 +20,8 @@
 /public/build
 /public/vendor
 /public/storage
+/public/css/filament/
+/public/js/filament/
 /storage/*.key
 /storage/pail
 /vendor
@@ -29,3 +31,9 @@ Homestead.yaml
 Thumbs.db
 *:Zone.Identifier
 *.ZoneIdentifier
+
+# AI tooling and session files — local only, not part of the template
+CLAUDE.md
+HANDOFF.md
+/.claude/
+/.trunk/

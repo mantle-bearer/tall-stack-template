@@ -1,10 +1,15 @@
 # TALL Stack Modules Starter
 
+[![Latest Release](https://img.shields.io/github/v/release/mantle-bearer/tall-stack-template)](https://github.com/mantle-bearer/tall-stack-template/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A clean starting point for new projects on the **TALL stack**, with a modular
 architecture and a deploy workflow for SSH-less shared hosting (cPanel).
 
-> Use this as a GitHub **template repository**: click **“Use this template”** to
-> spin up a new project with this exact setup, then follow the steps below.
+> **Use this template:** click **"Use this template"** on GitHub or run:
+> ```bash
+> composer create-project mantle-bearer/tall-stack-template my-project
+> ```
 
 ## Stack
 
@@ -36,6 +41,7 @@ cp .env.example .env
 php artisan key:generate
 touch database/database.sqlite     # or point DB_DATABASE elsewhere
 php artisan migrate --seed
+php artisan filament:assets        # publish Filament CSS/JS
 npm run dev                        # in another terminal: php artisan serve
 ```
 
@@ -54,7 +60,7 @@ Then visit `/` for the site and `/admin` to log in.
 - **Landing page:** `Modules/Website/resources/views/` (`home.blade.php`, `partials/`).
 - **New feature module:** `php artisan module:make Blog` (nwidart/laravel-modules).
 - **New admin resource:** `php artisan make:filament-resource Post`.
-- **composer.json:** update the `name` field (`your-vendor/...`).
+- **composer.json:** update the `name` field to your own vendor/package.
 
 ## Deploying to cPanel (FTP, no SSH)
 
@@ -68,3 +74,24 @@ repo settings:
 Notes for shared hosting: store the SQLite file **outside** the webroot, compile and
 commit assets via the workflow, and run migrations through the deploy hook (no
 persistent queue workers — use cron with `queue:work --stop-when-empty`).
+
+## Versioning and releases
+
+This template uses [Semantic Versioning](https://semver.org). Each release tracks a
+specific set of stable package versions:
+
+| Release | Laravel | Filament | Livewire | Tailwind |
+|---|---|---|---|---|
+| v1.x | 12.x | 3.x | 3.x | 4.x |
+
+To pick up a specific version:
+
+```bash
+# via composer
+composer create-project mantle-bearer/tall-stack-template my-project "^1.0"
+
+# or clone a tag
+git clone --depth 1 --branch v1.0.0 https://github.com/mantle-bearer/tall-stack-template my-project
+```
+
+See [CHANGELOG.md](CHANGELOG.md) for what changed between releases.
