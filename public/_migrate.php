@@ -52,7 +52,6 @@ echo "MIGRATE EXIT CODE: {$status}\n";
 echo "---- OUTPUT ----\n";
 echo $output;
 
-// Terminate console kernel (good practice).
-$kernel->terminate($status);
+$app->terminate();
 
 exit((int) $status);
