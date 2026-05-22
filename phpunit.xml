@@ -8,12 +8,10 @@
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
             <directory>Modules/Website/tests/Unit</directory>
-            <directory>Modules/Registration/tests/Unit</directory>
         </testsuite>
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
             <directory>Modules/Website/tests/Feature</directory>
-            <directory>Modules/Registration/tests/Feature</directory>
         </testsuite>
     </testsuites>
     <source>

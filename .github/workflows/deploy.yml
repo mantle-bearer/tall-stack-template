@@ -44,6 +44,9 @@ jobs:
               with:
                   node-version: '20'
 
+            - name: Publish Filament assets
+              run: php artisan filament:assets
+
             - name: Install Node dependencies and build assets
               run: |
                   npm ci
