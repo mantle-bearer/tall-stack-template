@@ -1,0 +1,103 @@
+@import 'tailwindcss';
+
+/* Enable dark mode via .dark class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tailwind content sources */
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../../Modules/**/*.blade.php';
+@source '../../Modules/**/*.php';
+@source '../../app/**/*.php';
+
+@theme {
+    /* Brand palette — change these to re-skin the whole app (CSS-first, Tailwind v4).
+       Generates utilities like bg-brand, text-brand, bg-accent, etc. */
+    --color-brand:       #4f46e5;
+    --color-brand-dark:  #4338ca;
+    --color-brand-light: #6366f1;
+    --color-accent:      #f59e0b;
+    --color-accent-dark: #d97706;
+
+    /* Light-mode surfaces */
+    --color-bg:    #f8fafc;
+    --color-bg2:   #f1f5f9;
+    --color-text:  #0f172a;
+    --color-text2: #475569;
+    --color-textm: #94a3b8;
+
+    /* Fonts */
+    --font-display: 'Syne', system-ui, sans-serif;
+    --font-sans:    'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+}
+
+/* Hide Alpine elements until Alpine initializes */
+[x-cloak] { display: none !important; }
+
+/* Dark-mode icon visibility — CSS-driven so the right icon shows before Alpine boots.
+   toggleTheme() toggles .dark on <html>; these classes respond immediately. */
+.theme-icon-sun  { display: none; }
+.dark .theme-icon-sun  { display: block; }
+.theme-icon-moon { display: block; }
+.dark .theme-icon-moon { display: none; }
+
+/* Base */
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.dark body {
+    background-color: #0b0f1a;
+    color: #e2e8f0;
+}
+
+/* Small caps section label utility */
+.section-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+}
+
+/* ─── Scroll-reveal animations ─────────────────────────────────────────────
+ * Add data-animate="<variant>" to any element. Optional data-delay="200" (ms).
+ * Variants: fade-up | fade-down | fade-left | fade-right | scale-in | fade-in
+ * The IntersectionObserver in app.js adds .is-visible on enter. No other setup.
+ */
+[data-animate] {
+    opacity: 0;
+    transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+[data-animate="fade-up"]    { transform: translateY(40px); }
+[data-animate="fade-down"]  { transform: translateY(-40px); }
+[data-animate="fade-left"]  { transform: translateX(40px); }
+[data-animate="fade-right"] { transform: translateX(-40px); }
+[data-animate="scale-in"]   { transform: scale(0.93); }
+[data-animate="fade-in"]    { /* opacity-only */ }
+
+[data-animate].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

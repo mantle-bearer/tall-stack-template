@@ -1,0 +1,12 @@
+# Block all direct web access to Laravel application files.
+# The only entry point is /index.php at the subdomain root, which bootstraps
+# from this folder via require __DIR__.'/laravel/...'.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
