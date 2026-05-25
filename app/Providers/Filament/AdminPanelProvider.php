@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Auth\Login;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Http\Middleware\Authenticate;
@@ -28,12 +29,16 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->login(Login::class)
             ->passwordReset()
             ->databaseNotifications()
             ->databaseNotificationsPolling('30s')
             ->colors([
-                'primary' => Color::Indigo,
+                // Template brand indigo — same token the public landing page uses
+                // (--color-brand in resources/css/app.css). Drives the "Log in"
+                // button and input focus rings; Filament treats this hex as shade
+                // 500 and derives the rest.
+                'primary' => Color::hex('#4f46e5'),
             ])
             ->brandName(config('app.name', 'Laravel'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
