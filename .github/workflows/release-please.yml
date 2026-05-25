@@ -1,0 +1,25 @@
+name: Release Please
+
+# Automated releases. As Conventional-Commit PRs land on main, this opens (and
+# keeps updating) a "release PR". Merging that PR bumps the version in
+# CHANGELOG.md + .release-please-manifest.json, creates the vX.Y.Z tag, and
+# publishes a GitHub Release. See CONTRIBUTING.md → "How releases work".
+
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    release-please:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run release-please
+              uses: googleapis/release-please-action@v4
+              with:
+                  config-file: release-please-config.json
+                  manifest-file: .release-please-manifest.json

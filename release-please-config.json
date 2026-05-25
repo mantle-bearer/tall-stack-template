@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "simple",
+  "include-component-in-tag": false,
+  "include-v-in-tag": true,
+  "changelog-path": "CHANGELOG.md",
+  "last-release-sha": "3462081e08ab69b601f35b5ab34579297fd9cf6f",
+  "changelog-sections": [
+    { "type": "feat", "section": "New features" },
+    { "type": "fix", "section": "Bug fixes" },
+    { "type": "deps", "section": "Stack upgrades" },
+    { "type": "perf", "section": "Performance" },
+    { "type": "docs", "section": "Documentation" },
+    { "type": "refactor", "section": "Refactors", "hidden": true },
+    { "type": "test", "section": "Tests", "hidden": true },
+    { "type": "build", "section": "Build", "hidden": true },
+    { "type": "ci", "section": "CI", "hidden": true },
+    { "type": "chore", "section": "Maintenance", "hidden": true },
+    { "type": "style", "section": "Styling", "hidden": true }
+  ],
+  "packages": {
+    ".": {
+      "package-name": "tall-stack-template"
+    }
+  }
+}
