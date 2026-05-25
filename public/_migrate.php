@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Contracts\Console\Kernel;
+
 /**
  * Lightweight deploy migration endpoint.
  * Usage: https://your-domain.example/_migrate.php?token=YOUR_TOKEN_HERE
@@ -6,14 +9,13 @@
  * Security: requires `app.deploy_token` (config/app.php) to be set on the server
  * to the same secret value. The file compares the token using hash_equals.
  */
-
 define('LARAVEL_START', microtime(true));
 define('APP_PUBLIC_PATH', __DIR__);
 
 // Adjust these paths if your deploy layout is different. In the preview deploy
 // layout the Laravel app lives in the `laravel/` sibling folder next to this file.
-$vendorAutoload = __DIR__ . '/laravel/vendor/autoload.php';
-$bootstrapApp  = __DIR__ . '/laravel/bootstrap/app.php';
+$vendorAutoload = __DIR__.'/laravel/vendor/autoload.php';
+$bootstrapApp = __DIR__.'/laravel/bootstrap/app.php';
 
 if (! file_exists($vendorAutoload) || ! file_exists($bootstrapApp)) {
     http_response_code(500);
@@ -42,7 +44,7 @@ if (! hash_equals($configured, $provided)) {
 }
 
 // Run migrations via the Console Kernel to ensure proper environment.
-$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$kernel = $app->make(Kernel::class);
 $status = $kernel->call('migrate', ['--force' => true, '--no-interaction' => true]);
 $output = $kernel->output();
 

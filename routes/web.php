@@ -15,14 +15,14 @@ Route::post('/_deploy/migrate', function (Request $request) {
     abort_if($token === '', 503, 'Deploy token not configured.');
     abort_unless(hash_equals($token, (string) $request->header('X-Deploy-Token', '')), 403);
 
-    $exit   = Artisan::call('migrate', ['--force' => true, '--no-interaction' => true]);
+    $exit = Artisan::call('migrate', ['--force' => true, '--no-interaction' => true]);
     $output = trim(Artisan::output());
 
     Log::info('Deploy migrate', ['exit_code' => $exit, 'output' => $output]);
 
     return response()->json([
-        'ok'        => $exit === 0,
+        'ok' => $exit === 0,
         'exit_code' => $exit,
-        'output'    => $output,
+        'output' => $output,
     ], $exit === 0 ? 200 : 500);
 })->name('deploy.migrate');
