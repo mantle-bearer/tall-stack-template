@@ -11,6 +11,19 @@ A **patch** fixes bugs or docs.
 
 ---
 
+## [1.1.0](https://github.com/mantle-bearer/tall-stack-template/compare/v1.0.0...v1.1.0) (2026-05-26)
+
+
+### New features
+
+* **auth:** create custom layout for login page and implement login form ([6508de9](https://github.com/mantle-bearer/tall-stack-template/commit/6508de92ca69ca732f9adb77971934a06feb8199))
+* **auth:** create custom layout for login page and implement login form ([d1fb8de](https://github.com/mantle-bearer/tall-stack-template/commit/d1fb8de3a724da2ad59e9e23e924a4c5043376e4))
+
+
+### Bug fixes
+
+* **ci:** deploy workflow startup failure from secrets in if condition ([5efd360](https://github.com/mantle-bearer/tall-stack-template/commit/5efd360d360615a0a8539a031b27c60e60d1152a))
+
 ## [1.0.0] — 2026-05-22
 
 ### Stack
