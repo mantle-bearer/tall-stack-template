@@ -16,7 +16,7 @@ architecture and a deploy workflow for SSH-less shared hosting (cPanel).
 
 | Layer | Choice |
 |---|---|
-| Framework | Laravel 12 (PHP 8.2+) |
+| Framework | Laravel 12 (PHP 8.3+) |
 | Admin | Filament v3 (`/admin`) |
 | Interactivity | Livewire v3 (Alpine.js ships bundled — do **not** import it separately) |
 | Styling | Tailwind CSS v4 (CSS-first `@theme`, no `tailwind.config.js`) |
