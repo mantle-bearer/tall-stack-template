@@ -1,0 +1,29 @@
+name: Sync labels
+
+# Keeps the repository's labels in sync with .github/labels.yml.
+# Runs when the label set changes on main, or manually via the Actions tab.
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - .github/labels.yml
+            - .github/workflows/labels.yml
+    workflow_dispatch:
+
+permissions:
+    issues: write
+
+jobs:
+    labeler:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Sync labels
+              uses: crazy-max/ghaction-github-labeler@v5
+              with:
+                  yaml-file: .github/labels.yml
+                  skip-delete: true

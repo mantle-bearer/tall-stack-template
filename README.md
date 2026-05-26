@@ -1,5 +1,6 @@
 # TALL Stack Modules Starter
 
+[![CI](https://github.com/mantle-bearer/tall-stack-template/actions/workflows/ci.yml/badge.svg)](https://github.com/mantle-bearer/tall-stack-template/actions/workflows/ci.yml)
 [![Latest Release](https://img.shields.io/github/v/release/mantle-bearer/tall-stack-template)](https://github.com/mantle-bearer/tall-stack-template/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -15,7 +16,7 @@ architecture and a deploy workflow for SSH-less shared hosting (cPanel).
 
 | Layer | Choice |
 |---|---|
-| Framework | Laravel 12 (PHP 8.2+) |
+| Framework | Laravel 12 (PHP 8.3+) |
 | Admin | Filament v3 (`/admin`) |
 | Interactivity | Livewire v3 (Alpine.js ships bundled — do **not** import it separately) |
 | Styling | Tailwind CSS v4 (CSS-first `@theme`, no `tailwind.config.js`) |
@@ -95,3 +96,25 @@ git clone --depth 1 --branch v1.0.0 https://github.com/mantle-bearer/tall-stack-
 ```
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed between releases.
+
+### How releases are cut
+
+Releases are automated with
+[release-please](https://github.com/googleapis/release-please-action). The next
+version number is derived from the [Conventional Commit](https://www.conventionalcommits.org)
+messages that land on `main` — `fix:` → patch, `feat:` → minor, a breaking
+change → major. release-please opens a **release PR** that bumps the version and
+updates the changelog; **merging that PR** publishes the tag and GitHub Release.
+Nothing is released until you merge it. See
+[CONTRIBUTING.md](CONTRIBUTING.md#how-releases-work-for-maintainers) for details.
+
+## Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the
+local setup, coding conventions, and pull-request workflow, and note our
+[Code of Conduct](CODE_OF_CONDUCT.md). To report a vulnerability, see
+[SECURITY.md](SECURITY.md).
+
+## License
+
+Released under the [MIT License](LICENSE).

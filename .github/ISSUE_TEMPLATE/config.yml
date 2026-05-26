@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Questions & discussion
+    url: https://github.com/mantle-bearer/tall-stack-template/discussions
+    about: Ask questions and share ideas here instead of opening an issue.
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/mantle-bearer/tall-stack-template/security/advisories/new
+    about: Please report security issues privately — never as a public issue.

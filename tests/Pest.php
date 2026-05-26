@@ -1,9 +1,11 @@
 <?php
 
-pest()->extend(Tests\TestCase::class)
+use Tests\TestCase;
+
+pest()->extend(TestCase::class)
     ->in('Feature');
 
-pest()->extend(Tests\TestCase::class)
+pest()->extend(TestCase::class)
     ->in('../Modules/Website/tests/Feature');
 
 expect()->extend('toBeOne', function () {
