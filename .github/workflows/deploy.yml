@@ -16,10 +16,10 @@ name: Deploy to cPanel
 #   build/, favicon.ico, robots.txt ...
 #   laravel/    ← Laravel app, locked down by .htaccess
 
+# Intentionally manual-only: this template has no deployment target configured
+# yet. Switch back to `push: branches: [main]` when you're ready to deploy.
 on:
-    push:
-        branches:
-            - main
+    workflow_dispatch:
 
 jobs:
     deploy:
