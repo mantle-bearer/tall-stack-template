@@ -11,10 +11,6 @@ A **patch** fixes bugs or docs.
 
 ---
 
-## [Unreleased]
-
----
-
 ## [1.0.0] — 2026-05-22
 
 ### Stack
