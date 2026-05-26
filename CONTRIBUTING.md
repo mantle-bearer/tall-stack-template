@@ -130,7 +130,7 @@ Releases are automated with
 
 1. As Conventional-Commit PRs land on `main`, release-please opens (and keeps
    updating) a **release PR** titled `chore: release vX.Y.Z`. It bumps the
-   version in `CHANGELOG.md` and `.github/release-please-manifest.json` based on the
+   version in `CHANGELOG.md` and `.github/release-manifest.json` based on the
    commits since the last release.
 2. **Merging that release PR** is what publishes a version: release-please creates
    the `vX.Y.Z` git tag and a GitHub Release with the generated notes.
